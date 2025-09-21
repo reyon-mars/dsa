@@ -2,7 +2,7 @@
 
 class Stack {
   private:
-    int stack[ 100 ];
+    std::list<int> buffer;
     int StackPointer;
   public:
     Stack( void ){
