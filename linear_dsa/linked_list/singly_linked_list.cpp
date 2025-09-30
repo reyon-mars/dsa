@@ -22,8 +22,12 @@ public:
     Node* temp = new Node();
     temp->data = val;
     temp->next = nullptr;
-    tail->next = nullptr;
-    tail = temp;
+    if( !head ){
+      head = tail = temp;
+    } else{
+      tail->next = temp;
+      tail = temp;
+    }
   }
   
 };
