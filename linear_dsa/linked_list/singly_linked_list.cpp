@@ -18,5 +18,12 @@ public:
     tail = head;
   }
 
+  void add_node( int val ){
+    Node* temp = new Node();
+    temp->data = val;
+    temp->next = nullptr;
+    tail->next = nullptr;
+    tail = temp;
+  }
   
 };
