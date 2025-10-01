@@ -29,5 +29,16 @@ public:
       tail = temp;
     }
   }
+
+  void push_front( int val ){
+    Node* temp = new Node();
+    temp->data = val;
+    if( !head ){
+      temp->next = nullptr;
+      head = tail = temp;
+    } else {
+      
+    }
+  }
   
 };
