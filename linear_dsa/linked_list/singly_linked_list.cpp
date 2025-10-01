@@ -18,7 +18,7 @@ public:
     tail = head;
   }
 
-  void add_node( int val ){
+  void push_back( int val ){
     Node* temp = new Node();
     temp->data = val;
     temp->next = nullptr;
