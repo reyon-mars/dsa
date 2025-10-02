@@ -40,5 +40,13 @@ public:
       
     }
   }
+
+  int pop_back(){
+    if( !head ){
+      return NaN;
+    }
+    Node* temp = tail;
+    
+  }
   
 };
