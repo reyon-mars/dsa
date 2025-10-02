@@ -60,6 +60,19 @@ public:
     }
   }
 
+  int front(){
+    if( !head ){
+      return -1;
+    }
+    return head->data;
+  }
+  int back(){
+    if( !tail ){
+      return -1;
+    }
+    return tail->data;
+  }
+
   int pop_back(){
     if( !head ){
       return NaN;
