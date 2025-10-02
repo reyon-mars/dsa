@@ -18,6 +18,10 @@ public:
     tail = head;
   }
 
+  bool empty(){
+    return head ? false : true;
+  }
+
   void push_back( int val ){
     Node* temp = new Node();
     temp->data = val;
