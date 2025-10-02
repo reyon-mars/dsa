@@ -41,6 +41,25 @@ public:
     }
   }
 
+  int pop_front(){
+    if( !head ){
+      return NaN;
+    }
+    if( head->next ){
+      Node* temp = head;
+      head = head->next;
+      temp->next = nullptr;
+      int ret = temp->data;
+      delete temp;
+      return ret;
+    }else{
+      int ret = head->data;
+      delete head;
+      head = tail = nullptr;
+      return ret;
+    }
+  }
+
   int pop_back(){
     if( !head ){
       return NaN;
