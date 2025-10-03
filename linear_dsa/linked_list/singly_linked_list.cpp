@@ -11,6 +11,7 @@ private:
 public:
 
   linked_list(): head(nullptr), tail(nullptr) {};
+
   linked_list( int val ){
     head = new Node();
     head->data = val;
@@ -22,6 +23,18 @@ public:
     return head ? false : true;
   }
 
+  void push_front( int val ){
+    Node* temp = new Node();
+    temp->data = val;
+    if( !head ){
+      temp->next = nullptr;
+      head = tail = temp;
+    } else {
+      temp->next = head;
+      head = temp;
+    }
+  }
+
   void push_back( int val ){
     Node* temp = new Node();
     temp->data = val;
@@ -31,17 +44,6 @@ public:
     } else{
       tail->next = temp;
       tail = temp;
-    }
-  }
-
-  void push_front( int val ){
-    Node* temp = new Node();
-    temp->data = val;
-    if( !head ){
-      temp->next = nullptr;
-      head = tail = temp;
-    } else {
-      
     }
   }
 
