@@ -47,6 +47,21 @@ public:
     }
   }
 
+  void insert_at( int val, size_t idx ){
+    Node* temp = head;
+    while( temp && idx ){
+      temp = temp->next;
+      idx--;
+    }
+    if( idx ){
+      throw std::out_of_range();
+    }
+    Node* new_node = new Node();
+    new_node->data = val;
+    new_node->next = temp->next;
+    temp->next = new_node;
+  }
+
   int pop_front(){
     if( !head ){
       return NaN;
