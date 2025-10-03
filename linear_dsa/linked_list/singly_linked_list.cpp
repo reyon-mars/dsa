@@ -79,5 +79,18 @@ public:
 
   int pop_back(){
   }
-  
+
+  bool find( int target )const{
+    if( !head ){
+      return false;
+    }
+    Node* temp = head;
+    while( temp ){
+      if( temp->data == target ){
+        return true;
+      }
+      temp = temp->next;
+    }
+    return false;
+  }
 };
