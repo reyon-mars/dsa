@@ -1,8 +1,10 @@
 class linked_list {
 private:
+
   struct Node{
     int data;
     Node* next;
+    Node( int val ): data(val), next(nullptr) {};
   };
 
   Node*  head;
@@ -72,7 +74,7 @@ public:
 
   int pop_front(){
     if( !head ){
-      return NaN;
+      throw std::out_of_range("Out of bounds.");
     }
     if( head->next ){
       Node* temp = head;
@@ -88,16 +90,15 @@ public:
       return ret;
     }
   }
-
   int front(){
     if( !head ){
-      return -1;
+      throw std::out_of_range("Out of bounds.");
     }
     return head->data;
   }
   int back(){
     if( !tail ){
-      return -1;
+      throw std::out_of_range("Out of bounds.");
     }
     return tail->data;
   }
