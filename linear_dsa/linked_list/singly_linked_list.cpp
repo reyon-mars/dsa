@@ -104,6 +104,24 @@ public:
   }
 
   int pop_back(){
+    if( !tail ){
+      throw std::out_of_range("Out of bounds.");
+    }
+    if( head == tail ){
+      int ret = tail->data;
+      delete tail;
+      head = tail = nullptr;
+      return ret;
+    }
+    Node* temp = head;
+    while( temp->next->next ){
+      temp = temp->next;
+    }
+    int ret = tail->data;
+    temp->next = nullptr;
+    delete tail;
+    tail = temp;
+    return ret;
   }
 
   bool find( int target )const{
