@@ -58,10 +58,13 @@ public:
       temp = temp->next;
       idx--;
     }
-    if( idx ){
-      throw std::out_of_range();
+    if( idx || !temp ){
+      throw std::out_of_range("Index out of bounds.");
     }
     Node* new_node = new Node();
+    if( temp == tail ){
+      tail = new_node;
+    }
     new_node->data = val;
     new_node->next = temp->next;
     temp->next = new_node;
