@@ -47,7 +47,12 @@ public:
     }
   }
 
-  void insert_at( int val, size_t idx ){
+  void insert_at( size_t idx, int val ){
+    if( idx == 0 ){
+      push_front( val );
+      return;
+    }
+    idx -= 1; // Zero based index.
     Node* temp = head;
     while( temp && idx ){
       temp = temp->next;
