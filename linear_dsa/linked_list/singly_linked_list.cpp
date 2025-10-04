@@ -136,4 +136,8 @@ class linked_list {
       }
       return false;
     }
+
+    std::vector<int> to_vector(){
+      return result;
+    }
 };
