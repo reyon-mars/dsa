@@ -8,15 +8,17 @@ class linked_list {
   
     Node*  head;
     Node* tail;
+    size_t list_size;
   
   public:
   
-    linked_list(): head(nullptr), tail(nullptr) {};
+    linked_list(): head(nullptr), tail(nullptr), list_size(0) {};
   
     linked_list( int val ){
       head = new Node();
       head->data = val;
       head->next = nullptr;
+      list_size = 1;
       tail = head;
     }
   
@@ -138,6 +140,14 @@ class linked_list {
     }
 
     std::vector<int> to_vector(){
+      if( !list_size ){ return {}; }
+      std::vector<int> result;
+      result.reserve( list_size );
+      Node* temp = head;
+      while( temp ){
+        result.push_back( temp->data );
+        temp = temp->next;
+      }
       return result;
     }
 };
