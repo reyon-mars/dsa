@@ -28,10 +28,13 @@ public:
     tail = head;
   }
 
-  ~linked_list(){
-    if( head ){
-      while( head ){
-        Node* temp = head;
+  ~linked_list()
+  {
+    if (head)
+    {
+      while (head)
+      {
+        Node *temp = head;
         head = head->next;
         delete temp;
       }
@@ -41,6 +44,20 @@ public:
   bool empty()
   {
     return head ? false : true;
+  }
+
+  void clear()
+  {
+    if (head)
+    {
+      Node *temp = nullptr;
+      while (head)
+      {
+        temp = head;
+        head = head->next;
+        delete temp;
+      }
+    }
   }
 
   void push_front(int val)
@@ -168,23 +185,25 @@ public:
     return ret;
   }
 
-  bool find(int target) const
+  Node* find(int target) const
   {
     if (!head)
     {
-      return false;
+      return nullptr;
     }
     Node *temp = head;
     while (temp)
     {
       if (temp->data == target)
       {
-        return true;
+        return temp;
       }
       temp = temp->next;
     }
-    return false;
+    return nullptr;
   }
+
+  bool contains()
 
   std::vector<int> to_vector()
   {
