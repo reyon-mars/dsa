@@ -203,7 +203,19 @@ public:
     return nullptr;
   }
 
-  bool contains()
+  bool contains( int target ){
+    if( !head ){
+      return false;
+    }
+    Node* temp = head;
+    while( temp ){
+      if( temp->data == target ){
+        return true;
+      }
+      temp = temp->next;
+    }
+    return false;
+  }
 
   std::vector<int> to_vector()
   {
