@@ -185,7 +185,7 @@ public:
     return ret;
   }
 
-  Node* find(int target) const
+  Node *find(int target) const
   {
     if (!head)
     {
@@ -203,13 +203,17 @@ public:
     return nullptr;
   }
 
-  bool contains( int target ){
-    if( !head ){
+  bool contains(int target)
+  {
+    if (!head)
+    {
       return false;
     }
-    Node* temp = head;
-    while( temp ){
-      if( temp->data == target ){
+    Node *temp = head;
+    while (temp)
+    {
+      if (temp->data == target)
+      {
         return true;
       }
       temp = temp->next;
