@@ -28,6 +28,16 @@ public:
     tail = head;
   }
 
+  ~linked_list(){
+    if( head ){
+      while( head ){
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+      }
+    }
+  }
+
   bool empty()
   {
     return head ? false : true;
