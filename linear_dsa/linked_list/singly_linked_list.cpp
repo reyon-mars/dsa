@@ -34,12 +34,6 @@ public:
       head = nullptr;
       tail = nullptr;
       list_size = 0;
-    } else{
-      Node* temp = list.head;
-      
-      while( temp ){
-        
-      }
     }
   }
 
