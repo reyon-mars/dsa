@@ -34,6 +34,19 @@ public:
       head = nullptr;
       tail = nullptr;
       list_size = 0;
+    } else {
+      Node* src = list.head;
+      head = new Node( src->data );
+      tail = head;
+      list_size++;
+
+      src = src->next;
+      while( src ){
+        tail->next = new Node( src->data );
+        tail = tail->next;
+        list_size++;
+        src = src->next;
+      }
     }
   }
 
