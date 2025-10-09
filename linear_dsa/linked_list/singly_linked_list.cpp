@@ -28,6 +28,21 @@ public:
     tail = head;
   }
 
+  linked_list( const linked_list& list )
+  {
+    if( list.empty() ){
+      head = nullptr;
+      tail = nullptr;
+      list_size = 0;
+    } else{
+      Node* temp = list.head;
+      
+      while( temp ){
+        
+      }
+    }
+  }
+
   ~linked_list()
   {
     if (head)
@@ -41,7 +56,7 @@ public:
     }
   }
 
-  bool empty()
+  bool empty() const
   {
     return head ? false : true;
   }
