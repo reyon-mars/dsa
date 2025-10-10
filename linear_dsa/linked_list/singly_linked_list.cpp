@@ -28,26 +28,65 @@ public:
     tail = head;
   }
 
-  linked_list( const linked_list& list )
+  linked_list(const linked_list &list)
   {
-    if( list.empty() ){
+    if (list.empty())
+    {
       head = nullptr;
       tail = nullptr;
       list_size = 0;
-    } else {
-      Node* src = list.head;
-      head = new Node( src->data );
+    }
+    else
+    {
+      Node *src = list.head;
+      head = new Node(src->data);
       tail = head;
       list_size++;
 
       src = src->next;
-      while( src ){
-        tail->next = new Node( src->data );
+      while (src)
+      {
+        tail->next = new Node(src->data);
         tail = tail->next;
         list_size++;
         src = src->next;
       }
     }
+  }
+
+  linked_list &operator=(const linked_list &list)
+  {
+
+    if (this == &list)
+    {
+      return *this;
+    }
+    Node *temp = head;
+    while (head)
+    {
+      temp = head->next;
+      delete head;
+      head = temp;
+    }
+
+    head = tail = nullptr;
+    list_size = 0;
+    if (list.empty())
+    {
+      return *this;
+    }
+    list_size = list.list_size;
+    temp = list.head;
+    head = tail = new Node(temp->data);
+    temp = temp->next;
+
+    while (temp)
+    {
+      tail->next = new Node(temp->data);
+      tail = tail->next;
+      temp = temp->next;
+    }
+    return *this;
   }
 
   ~linked_list()
