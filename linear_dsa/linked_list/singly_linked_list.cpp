@@ -117,6 +117,7 @@ public:
         temp = head;
         head = head->next;
         delete temp;
+        list_size--;
       }
     }
   }
@@ -129,11 +130,13 @@ public:
     {
       temp->next = nullptr;
       head = tail = temp;
+      list_size++;
     }
     else
     {
       temp->next = head;
       head = temp;
+      list_size++;
     }
   }
 
@@ -145,11 +148,13 @@ public:
     if (!head)
     {
       head = tail = temp;
+      list_size++;
     }
     else
     {
       tail->next = temp;
       tail = temp;
+      list_size++;
     }
   }
 
@@ -158,6 +163,7 @@ public:
     if (idx == 0)
     {
       push_front(val);
+      list_size++;
       return;
     }
     idx -= 1; // Zero based index.
@@ -179,6 +185,7 @@ public:
     new_node->data = val;
     new_node->next = temp->next;
     temp->next = new_node;
+    list_size++;
   }
 
   int pop_front()
@@ -194,6 +201,7 @@ public:
       temp->next = nullptr;
       int ret = temp->data;
       delete temp;
+      list_size--;
       return ret;
     }
     else
@@ -201,6 +209,7 @@ public:
       int ret = head->data;
       delete head;
       head = tail = nullptr;
+      list_size--;
       return ret;
     }
   }
@@ -231,6 +240,7 @@ public:
     {
       int ret = tail->data;
       delete tail;
+      list_size--;
       head = tail = nullptr;
       return ret;
     }
@@ -243,6 +253,7 @@ public:
     temp->next = nullptr;
     delete tail;
     tail = temp;
+    list_size--;
     return ret;
   }
 
@@ -297,5 +308,10 @@ public:
       temp = temp->next;
     }
     return result;
+  }
+
+  size_t size() const
+  {
+    return list_size;
   }
 };
