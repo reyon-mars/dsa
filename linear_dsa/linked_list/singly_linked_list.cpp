@@ -314,4 +314,20 @@ public:
   {
     return list_size;
   }
+
+  int at(size_t index) const
+  {
+    if (index >= list_size)
+    {
+      throw std::out_of_range("Index out of bounds.");
+    }
+
+    Node *temp = head;
+    while (index)
+    {
+      temp = temp->next;
+      index--;
+    }
+    return temp->data;
+  }
 };
