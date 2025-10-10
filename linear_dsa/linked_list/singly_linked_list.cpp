@@ -1,4 +1,5 @@
 #include <exception>
+#include <iostream>
 #include <vector>
 
 class linked_list
@@ -329,5 +330,14 @@ public:
       index--;
     }
     return temp->data;
+  }
+  
+  void print() const{
+    Node* temp = head;
+    while( temp ){
+      std::cout << '[' << temp->data << ']' << "->";
+      temp = temp->next;
+    }
+    std::cout << 'X' << '\n';
   }
 };
