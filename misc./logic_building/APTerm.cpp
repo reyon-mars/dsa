@@ -12,9 +12,9 @@ int main(){
         std::cout << "Please enter the value for N : ";
         std::cin >> N;
 
-        int NTerm = a + ( N - 1 ) * d;
+        int n_term = a + ( N - 1 ) * d;
 
-        std::cout << "The " << N << " term of the progression is " << NTerm << std::endl;
+        std::cout << "The " << N << " term of the progression is " << n_term << std::endl;
     }
 
     return 0;
