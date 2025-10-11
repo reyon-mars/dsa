@@ -520,9 +520,12 @@ int main( void )
 {   
     math maths;
 	int array[] = { 90, 32, 53, 12, 35, 13, 152, 24, 14, 18, 11 };
+	
     int* minMax = maths.MinMaxInArray( array, sizeof( array ) / sizeof( int ) );
+	
     std:: cout << minMax[0] << " " << minMax[1] << std:: endl;
     std:: cout << maths.binaryAddition( 110 , 101 ) << std:: endl;
+	
     int indexOfKey;
     std:: cout << ( indexOfKey = maths.linearSearch( array, sizeof( array ) / sizeof( int ) , 18 ) )<< std::endl;
     std:: cout << array[ indexOfKey ] << std:: endl;
