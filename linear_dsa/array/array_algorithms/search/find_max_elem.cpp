@@ -1,6 +1,5 @@
 #include <vector>
 
-
 template< typename T>
 T find_elem( std::vector<T>& array, bool (*cmpr)( T, T ) ){
     
