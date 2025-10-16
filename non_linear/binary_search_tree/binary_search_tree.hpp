@@ -17,15 +17,13 @@ private:
     Node *root;
     size_t tree_size;
 
+    void insert_node( int val );
+    void clear();
+
 public:
-    bst(): root(nullptr), tree_size(0) {};
+    
+    bst();
+    bst( int val );
 
-    bst( int val ){
-        root = new Node( val );
-        tree_size++;
-    }
-
-    ~bst(){
-        clear( root );
-    }
+    ~bst();
 };
