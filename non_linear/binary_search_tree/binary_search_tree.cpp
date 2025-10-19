@@ -1,5 +1,9 @@
 #include "binary_search.hpp"
 
+size_t bst::size(){
+    return tree_size;
+}
+
 void bst::insert_node( int val ){
     if( !root ){
         root = new Node( val );
