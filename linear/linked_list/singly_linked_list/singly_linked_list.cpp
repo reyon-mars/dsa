@@ -340,4 +340,9 @@ public:
     }
     std::cout << 'X' << '\n';
   }
+
+  Node* mid()
+  {
+    
+  }
 };
