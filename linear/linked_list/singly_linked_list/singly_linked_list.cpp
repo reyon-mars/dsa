@@ -343,13 +343,15 @@ public:
 
   Node* mid()
   {
-    if( !head || !head->next ){
+    if( !head || !head->next )
+    {
       return head;
     }
     Node* fast = head;
     Node* slow = head;
 
-    while( fast && fast->next ){
+    while( fast && fast->next )
+    {
       fast = fast->next->next;
       slow = slow->next;
     }
