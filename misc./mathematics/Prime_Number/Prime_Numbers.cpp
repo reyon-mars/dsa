@@ -1,5 +1,8 @@
 #include <iostream>
 
+bool is_prime( int num ){
+    return true;
+}
 int main( void ){
     int N(0);
     std::cin >> N;
