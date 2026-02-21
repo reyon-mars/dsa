@@ -2,9 +2,8 @@
 
 using namespace std;
 
-class Patterns
+namespace Patterns
 {
-public:
     void solidRectangle(int row, int col)
     {
         for (int i = 1; i <= row; i++)
@@ -285,8 +284,7 @@ int main(void)
     cout << "Please enter a number: ";
     cin >> row ;
 
-    Patterns patterns;
-    patterns.zigzag( row );
+    Patterns::zigzag( row );
 
     return 0;
 }
