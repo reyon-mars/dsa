@@ -1,14 +1,17 @@
 #include <iostream>
 #include <print>
 
-void count_digit(int num, int &count)
+uint32_t count_digit(int num)
 {
     if (num == 0)
     {
-        return;
+        return 1;
     }
-    count_digit((num / 10), count);
-    count++;
+    if (num < 10)
+    {
+        return 1;
+    }
+    return 1 + count_digit(num / 10);
 }
 
 auto main() -> int
@@ -18,7 +21,7 @@ auto main() -> int
     std::print("Please enter a number: ");
     std::cin >> number;
 
-    count_digit(number, count);
+    count_digit(number);
     std::cout << number << " : " << count;
 
     return 0;

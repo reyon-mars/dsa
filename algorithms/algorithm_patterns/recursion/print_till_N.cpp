@@ -6,12 +6,6 @@ void print_till_N(int N)
     {
         return;
     }
-
-    if (N == 1)
-    {
-        std::cout << N << " ";
-        return;
-    }
     print_till_N(N - 1);
     std::cout << N << " ";
 }
@@ -20,11 +14,6 @@ void print_till_1(int N)
 {
     if (N <= 0)
     {
-        return;
-    }
-    if (N == 1)
-    {
-        std::cout << N << " ";
         return;
     }
     std::cout << N << " ";
