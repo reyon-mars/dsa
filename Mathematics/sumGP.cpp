@@ -1,18 +1,22 @@
 #include <iostream>
 
-double pow( double base, double power ){
+double pow(double base, double power)
+{
     double res = 1;
-    while( power ){
+    while (power)
+    {
         res *= base;
         power--;
     }
     return res;
 }
 
-int main(){
+int main()
+{
     double a(0), r(0), n(0);
 
-    while( true ){
+    while (true)
+    {
         std::cout << "Please enter the value for a : ";
         std::cin >> a;
         std::cout << "Please enter the value for r : ";
@@ -20,7 +24,7 @@ int main(){
         std::cout << "Please enter the value for n : ";
         std::cin >> n;
 
-        double GPSum = ( a * ( 1 - ( pow( r, n ) ) ) )  / ( 1 - r );
+        double GPSum = (a * (1 - (pow(r, n)))) / (1 - r);
 
         std::cout << "The Geometric sum is " << GPSum << std::endl;
     }

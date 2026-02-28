@@ -1,3 +1,4 @@
+#include <ranges>
 #include <iostream>
 #include <print>
 #include <array>
@@ -14,7 +15,7 @@ consteval std::array<uint64_t, 31> generate_even_fib()
     even_fib[0] = t1;
     even_fib[1] = t2;
 
-    for (size_t count = 2; count < 31; ++count)
+    for (std::size_t count = 2; count < 31; ++count)
     {
         uint64_t next_even = (4 * t2) + t1;
         even_fib[count] = next_even;
@@ -32,7 +33,7 @@ consteval std::array<uint64_t, 31> generate_prefix_sum(const std::array<uint64_t
 
     prefix_sum[0] = arr[0];
 
-    for (size_t i = 1; i < arr.size(); ++i)
+    for (std::size_t i = 1; i < arr.size(); ++i)
     {
         prefix_sum[i] = arr[i] + prefix_sum[i - 1];
     }
@@ -46,11 +47,12 @@ static constexpr auto even_prefix_sum = generate_prefix_sum(even_fibs);
 auto main(int argc, char *argv[]) -> int
 {
     int T;
+    std::print("Enter the number of tests: ");
     std::cin >> T;
 
     while (T--)
     {
-        int N;
+        uint64_t N;
         std::print("Please enter a number: ");
         std::cin >> N;
 

@@ -1,18 +1,21 @@
 #include <iostream>
 
-bool odd( int num ){
-    return ( num & 1 ) ? true : false; 
-}
-
-auto even( int num ) -> int
+bool odd(int num)
 {
-    return !( num & 1 );
+    return (num & 1) ? true : false;
 }
 
-int main( ){
+auto even(int num) -> int
+{
+    return !(num & 1);
+}
 
-    for ( int i = 0; i < 10; i++ ){
-        std::cout << i << " " << odd( i ) << std::endl;
+int main()
+{
+
+    for (int i = 0; i < 10; i++)
+    {
+        std::cout << i << " " << odd(i) << std::endl;
     }
 
     return 0;

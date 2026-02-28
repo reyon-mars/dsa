@@ -1,22 +1,29 @@
 #include <iostream>
 
-int sumOfDigits( int n ){
+int sumOfDigits(int n)
+{
 
-    if( n == 0 ){ return 0; }
+    if (n == 0)
+    {
+        return 0;
+    }
 
-    return ( n % 10 ) + sumOfDigits( n / 10 );
+    return (n % 10) + sumOfDigits(n / 10);
 }
 
-int main(){
+int main()
+{
     int n(0), num(0);
-    while( true ){
+    while (true)
+    {
         std::cout << "Please enter a number : ";
         std::cin >> n;
         num = n;
 
         int sum(0);
 
-        while( n ){
+        while (n)
+        {
             int digit = n % 10;
             sum += digit;
             n = n / 10;

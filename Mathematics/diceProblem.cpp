@@ -1,10 +1,12 @@
 #include <iostream>
 
-int main(){
+int main()
+{
 
     int faceNumber(0);
 
-    while( true ){
+    while (true)
+    {
         std::cout << "Please enter the dice face : ";
         std::cin >> faceNumber;
 
