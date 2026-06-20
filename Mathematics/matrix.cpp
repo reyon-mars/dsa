@@ -46,7 +46,7 @@ public:
 
 	friend std::optional<Matrix<T>> operator*(const Matrix<T>& lhs, const Matrix<T>& rhs)
 	{
-		if (lhs.cols != rhs.cols)
+		if (lhs.cols != rhs.rows)
 		{
 			return std::nullopt;
 		}
