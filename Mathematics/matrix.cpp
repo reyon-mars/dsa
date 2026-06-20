@@ -43,4 +43,42 @@ public:
 	{
 		return data[(row * cols) + col];
 	}
+
+	friend std::optional<Matrix<T>> operator*(const Matrix<T>& lhs, const Matrix<T>& rhs)
+	{
+		if (lhs.cols != rhs.cols)
+		{
+			return std::nullopt;
+		}
+		auto result_opt = Matrix<T>::createMatrix(lhs.rows, rhs.cols);
+		if (!result_opt)
+		{
+			return std::nullopt;
+		}
+
+		Matrix<T>& result = *result_opt;
+
+		for (int r = 0; r < lhs.rows; ++r)
+		{
+			for (int c = 0; c < rhs.cols; ++c)
+			{
+				T sum = T();
+				for (int k = 0; k < lhs.cols; ++k)
+				{
+					sum += lhs[r, k] * rhs[k, c];
+				}
+				result[r, c] = sum;
+			}
+		}
+		return result;
+	}
+
+	friend std::optional<Matrix<T>> operator*(const std::optional<Matrix<T>>& lhs, const std::optional<Matrix<T>>& rhs)
+	{
+		if (!lhs || !rhs)
+		{
+			return std::nullopt;
+		}
+		return (*lhs) * (*rhs);
+	}
 };
