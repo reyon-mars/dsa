@@ -1,4 +1,6 @@
+#include <algorithm>
 #include <format>
+#include <initializer_list>
 #include <optional>
 #include <utility>
 #include <vector>
@@ -23,7 +25,7 @@ public:
 
 	static std::optional<Matrix<T>> createMatrix(std::initializer_list<std::initializer_list<T>> il)
 	{
-		if (il.size() == 0 || il.begin().size() == 0)
+		if (il.size() == 0 || il.begin()->size() == 0)
 		{
 			return std::nullopt;
 		}
