@@ -30,7 +30,7 @@ public:
 			return std::nullopt;
 		}
 		int row_count = il.size();
-		int col_count = il.begin().size();
+		int col_count = il.begin()->size();
 
 		for (const auto& row : il)
 		{
