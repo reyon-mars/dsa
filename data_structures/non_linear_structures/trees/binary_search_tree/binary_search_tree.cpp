@@ -1,5 +1,8 @@
-#include "binary_search.hpp"
+#include "binary_search_tree.hpp"
+#include <cstddef>
+#include <vector>
 
+<<<<<<< HEAD
 bst::~bst() {
     destroy(root);
 }
@@ -153,4 +156,101 @@ std::vector<int> bst::postorder() const {
     std::vector<int> result;
     postorder_walk(root, result);
     return result;
+=======
+bst::bst()
+{
+	root = nullptr;
+	tree_size = 0;
+}
+
+bst::bst(int val)
+{
+	root = new bst::Node(val);
+	tree_size++;
+}
+
+bst::bst(std::vector<int> values)
+{
+	for (auto val : values)
+	{
+		insert(val);
+	}
+}
+
+bst::Node* bst::insert(int val)
+{
+	bst::Node* new_node = new bst::Node(val);
+
+	if (!root)
+	{
+		root = new_node;
+		tree_size++;
+		return root;
+	}
+
+	Node* parent = root;
+	while (true)
+	{
+		if (val < parent->data)
+		{
+			if (parent->left)
+			{
+				parent = parent->left;
+			}
+			else
+			{
+				parent->left = new_node;
+				tree_size++;
+				return parent->left;
+			}
+		}
+		else if (val > parent->data)
+		{
+			if (parent->right)
+			{
+				parent = parent->right;
+			}
+			else
+			{
+				parent->right = new_node;
+				tree_size++;
+				return parent->right;
+			}
+		}
+		else
+		{
+			return parent;
+		}
+	}
+}
+
+
+void bst::remove( int val ){}
+
+bool bst::find(int target) const
+{
+	Node* current = root;
+
+	while (current != nullptr)
+	{
+		if (current->data == target)
+		{
+			return true;
+		}
+		else if (current->data > target)
+		{
+			current = current->left;
+		}
+		else
+		{
+			current = current->right;
+		}
+	}
+	return false;
+}
+
+size_t bst::size() const
+{
+	return tree_size;
+>>>>>>> ff22b27 (few fixes.)
 }

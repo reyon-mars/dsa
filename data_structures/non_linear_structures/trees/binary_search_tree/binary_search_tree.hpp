@@ -1,4 +1,5 @@
 #pragma once
+<<<<<<< HEAD
 #include <cstddef>
 #include <optional>
 #include <vector>
@@ -44,3 +45,39 @@ private:
     void   preorder_walk (Node* node, std::vector<int>& out) const;
     void   postorder_walk(Node* node, std::vector<int>& out) const;
 };
+=======
+
+#include <cstddef>
+#include <vector>
+class bst
+{
+private:
+	struct Node
+	{
+		int data;
+		Node* left;
+		Node* right;
+		explicit Node(int val) : data(val), left(nullptr), right(nullptr) {};
+	};
+
+	Node* root;
+	size_t tree_size;
+
+	void clear();
+
+public:
+	bst();
+	bst(int val);
+	bst(std::vector<int> values);
+
+	~bst();
+    
+    	
+    Node* insert(int val);
+    void remove( int val );
+
+	bool find(int target) const;
+	std::vector<int> in_order() const;
+	size_t size() const;
+};
+>>>>>>> ff22b27 (few fixes.)
