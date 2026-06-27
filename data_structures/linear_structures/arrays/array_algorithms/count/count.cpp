@@ -1,9 +1,18 @@
+#include <concepts>
+#include <vector>
+
 template <typename T>
+	requires std::equality_comparable<T>
 int count(std::vector<T> arr, T target)
 {
-    int freq(0);
-    for (size_t i = 0; i < arr.size(); i++)
-        if (arr[i] == target)
-            freq++;
-    return freq;
+	int freq{0};
+
+	for (const auto& item : arr)
+	{
+		if (item == target)
+		{
+			freq++;
+		}
+	}
+	return freq;
 };
