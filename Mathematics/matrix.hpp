@@ -92,14 +92,13 @@ public:
 
 		for (int r = 0; r < lhs.rows; ++r)
 		{
-			for (int c = 0; c < rhs.cols; ++c)
+			for (int k = 0; k < lhs.cols; ++k)
 			{
-				T sum = T();
-				for (int k = 0; k < lhs.cols; ++k)
+				T lhs_val = lhs[r, k];
+				for (int c = 0; c < rhs.cols; ++c)
 				{
-					sum += lhs[r, k] * rhs[k, c];
+					result[r, c] += lhs_val * rhs[k, c];
 				}
-				result[r, c] = sum;
 			}
 		}
 		return result;
