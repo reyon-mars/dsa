@@ -12,7 +12,7 @@ T find_elem(std::vector<T>& array, bool (*cmpr)(T, T))
 	T result = array[0];
 	for (const auto& item : array)
 	{
-		if (compr(result, item))
+		if (cmpr(result, item))
 		{
 			result = item;
 		}
