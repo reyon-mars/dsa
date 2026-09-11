@@ -1,3 +1,4 @@
+#include <cstdint>
 #include <iostream>
 
 uint64_t sum_of_digits(uint64_t N)

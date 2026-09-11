@@ -1,3 +1,4 @@
+#include <cstdint>
 #include <iostream>
 
 uint64_t sum_of_n_natural(uint64_t N)

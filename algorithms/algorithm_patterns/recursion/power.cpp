@@ -1,3 +1,4 @@
+#include <cstdint>
 #include <iostream>
 
 uint64_t power(uint64_t base, uint64_t exp)
