@@ -1,3 +1,4 @@
+#include <cstdint>
 #include <iostream>
 #include <print>
 
@@ -16,8 +17,9 @@ uint32_t count_digit(int num)
 
 auto main() -> int
 {
-	int number;
-	int count = 0;
+	int number {};
+	int count {0};
+	
 	std::print("Please enter a number: ");
 	std::cin >> number;
 

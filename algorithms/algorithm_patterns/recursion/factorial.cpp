@@ -1,3 +1,4 @@
+#include <cstdint>
 #include <iostream>
 
 uint64_t factorial(uint64_t N)
