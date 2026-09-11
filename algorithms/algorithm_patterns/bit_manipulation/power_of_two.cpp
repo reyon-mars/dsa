@@ -1,18 +1,23 @@
+#include <bit>
+#include <climits>
 #include <iostream>
 
-bool power_of_2( int n ){
-    return ! ( n & ( n - 1 ) ); 
+bool power_of_2(int n) 
+{ 
+    return !(n & (n - 1)); 
 }
 
-int main( void ) 
+bool powerOf2(int n) 
 {
-    for( int i = 1; i < (1ULL << 32 ); i = (2 * i ) ){
-        std::cout << i << " " << ( power_of_2(i) ? "True": "False" ) << std::endl;
+     return std::popcount(static_cast<unsigned int>(n)) == 1;
+}
+
+int main() 
+{
+    for( int i = 0; i <= INT_MAX; ++i )
+    {
+        std::cout << i << " is " << ( powerOf2(i)? " power of 2" : " not power of 2 " ) << '\n';
     }
-    for( int i = 1; i <= 256 ; i++ ){
-        if( power_of_2( i ) ) {
-            std::cout << i << std::endl;
-        }
-    }
+  
     return 0;
 }
