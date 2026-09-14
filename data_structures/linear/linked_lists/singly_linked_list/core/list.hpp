@@ -22,13 +22,13 @@ public:
 	}
 	~List() = default;
 
-	size_t length() const
+	[[nodiscard]] size_t length() const
 	{
 		return size;
 	};
 	T& value(size_t pos);
 	T value(size_t pos) const;
-	bool empty() const
+	[[nodiscard]] bool empty() const
 	{
 		return size == 0;
 	}
@@ -36,11 +36,14 @@ public:
 	void remove(size_t pos);
 	void deleteAll(T value);
 	void insertBefore();
+
 	template <typename Fn>
 	void apply(Fn ApplyFunction);
 	template <typename Fn, typename Result>
 	Result reduce(Fn ReduceFunction);
 	void print() const;
+
+	friend bool cyclePresent( List<T>& list );
 };
 
 template <typename T>
