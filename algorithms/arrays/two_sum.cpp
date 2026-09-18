@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <unordered_map>
+#include <cstddef>
 #include <unordered_set>
 #include <vector>
 
@@ -9,10 +9,12 @@ bool two_sum_2_pointer(std::vector<int>& arr, int target, bool is_sorted = false
 	{
 		return false;
 	}
+
 	size_t left(0), right(arr.size() - 1);
+	
 	if (!is_sorted)
 	{
-		std::sort(arr.begin(), arr.end());
+		std::ranges::sort( arr );
 	}
 
 	while (left < right)
