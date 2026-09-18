@@ -12,14 +12,14 @@ uint64_t power(uint64_t base, uint64_t exp)
 
 auto main() -> int
 {
-	int base, exp;
+	int base = 0, exp = 0;
 	while (true)
 	{
 		std::cout << "Please enter the base: ";
 		std::cin >> base;
 		std::cout << "Please enter the exponent: ";
 		std::cin >> exp;
-		std::cout << power(base, exp) << std::endl;
+		std::cout << power(base, exp) << '\n';
 	}
 
 	return 0;

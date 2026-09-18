@@ -25,7 +25,7 @@ auto main() -> int
 	int N;
 	std::cout << "Please enter a number: ";
 	std::cin >> N;
-	std::cout << std::endl;
+	std::cout << '\n';
 
 	print_till_N(N);
 	print_till_1(N);

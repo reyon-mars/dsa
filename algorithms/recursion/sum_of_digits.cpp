@@ -20,7 +20,7 @@ auto main() -> int
 		std::cout << "Please enter a number: ";
 		std::cin >> N;
 
-		std::cout << "Digits sum: " << sum_of_digits(N) << std::endl;
+		std::cout << "Digits sum: " << sum_of_digits(N) << '\n';
 	}
 	return 0;
 }

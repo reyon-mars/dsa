@@ -3,10 +3,12 @@
 
 int max_fruits(const std::vector<int>& arr)
 {
+	const int n = static_cast<int>( arr.size() );
+
 	int fruit_max(0);
 	std::unordered_map<int, int> fruit_freq;
 
-	for (int right(0), left(0); right < arr.size(); right++)
+	for (int right(0), left(0); right < n; right++)
 	{
 		fruit_freq[arr[right]]++;
 		while (fruit_freq.size() > 2)

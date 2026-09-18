@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdint>
 #include <print>
 
 uint64_t reverse_num(uint64_t num)

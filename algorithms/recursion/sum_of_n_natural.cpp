@@ -15,7 +15,7 @@ int main()
 	int N;
 	std::cout << "Please enter a number: ";
 	std::cin >> N;
-	std::cout << std::endl;
+	std::cout << '\n';
 
 	std::cout << sum_of_n_natural(N);
 	return 0;
