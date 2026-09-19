@@ -15,7 +15,6 @@ class LinkedList
         LinkedList();
 
         Node<T>* Get( std::size_t index ) const;
-
         
         void InsertHead( T val );
         void InsertTail( T val );
