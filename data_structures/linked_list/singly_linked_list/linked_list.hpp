@@ -27,6 +27,6 @@ class LinkedList
         void RemoveFirst( T val );
         void Remove( size_t index );
 
-        [[nodiscard]] size_t Count() const;
+        [[nodiscard]] size_t Count() const { return m_count; };
         void Print() const;
 };
