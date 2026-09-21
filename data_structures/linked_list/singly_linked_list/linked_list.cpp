@@ -53,6 +53,8 @@ void LinkedList<T>::InsertTail( T val )
     return;
 }
 
+// Time Complexity : O(N)
+// Best Case : O(1)
 template <typename T>
 void LinkedList<T>::Insert( size_t index, T val )
 {
@@ -82,6 +84,23 @@ void LinkedList<T>::Insert( size_t index, T val )
     prevNode->next = newNode;
     newNode->next = nextNode;
     m_count++;
-    
+
     return;
+}
+
+template <typename T>
+int LinkedList<T>::Search( T val ) const
+{
+    if( !m_count ) return -1;
+
+    const Node<T>* temp = Head;
+
+    for( size_t i = 0; i < m_count &&  temp; ++i, temp = temp->next )
+    {
+        if( temp->val == val )
+        {
+            return static_cast<int>(i);
+        }
+    }
+    return -1;
 }
