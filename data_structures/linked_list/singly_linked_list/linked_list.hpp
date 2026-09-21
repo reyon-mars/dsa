@@ -6,7 +6,7 @@ template < typename T >
 class LinkedList
 {
     private:
-        int m_count { 0 };
+        std::size_t m_count { 0 };
     
     public:
         Node<T>* Head{ nullptr };
