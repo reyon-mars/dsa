@@ -125,3 +125,31 @@ void LinkedList<T>::RemoveHead()
     m_count--;
 }
 
+
+template <typename T>
+void LinkedList<T>::RemoveTail()
+{
+    if( m_count == 0 )
+    {
+        return;
+    }
+
+    if( m_count == 1 )
+    {
+        RemoveHead();
+        return;
+    }
+
+    Node<T>* prevNode { Head };
+
+    while( prevNode && prevNode->next )
+    {
+        prevNode = prevNode->next;
+    }
+    
+    prevNode->next = nullptr;
+    delete Tail;
+    
+    Tail = prevNode;
+    m_count--;
+}
