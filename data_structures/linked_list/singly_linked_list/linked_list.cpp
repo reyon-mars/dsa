@@ -88,6 +88,9 @@ void LinkedList<T>::Insert( size_t index, T val )
     return;
 }
 
+
+// Time Complexity: O(N)
+// Best Case: O(1)
 template <typename T>
 int LinkedList<T>::Search( T val ) const
 {
@@ -104,3 +107,21 @@ int LinkedList<T>::Search( T val ) const
     }
     return -1;
 }
+
+
+// O(1)
+template <typename T>
+void LinkedList<T>::RemoveHead()
+{
+    if( m_count == 0 )
+    {
+        return;
+    }
+    
+    Node<T>* node { Head };
+    
+    Head = Head->next;
+    delete node;
+    m_count--;
+}
+
