@@ -19,3 +19,8 @@ std::uint8_t count_set_bits( int num )
     }
     return count;
 }
+
+std::size_t find_pos_of_only_setbit( unsigned int value )
+{
+    return __builtin_ffs( value );
+}
