@@ -1,6 +1,7 @@
 #include "linked_list.hpp"
 #include "node.hpp"
 #include <cstddef>
+#include <print>
 
 // Time complexity of O(N), since it has to iterate
 // through the entire list it the index is that of
@@ -153,6 +154,7 @@ void LinkedList<T>::RemoveTail()
 	m_count--;
 }
 
+// O(N)
 template <typename T>
 void LinkedList<T>::Remove(size_t index)
 {
@@ -182,4 +184,14 @@ void LinkedList<T>::Remove(size_t index)
 	prevNode->next = currNode->next;
 	delete currNode;
 	m_count--;
+}
+
+template <typename T>
+void LinkedList<T>::Print() const
+{
+	for (auto curr{Head}; curr != nullptr; curr = curr->next)
+	{
+		std::print("{}->", curr->data);
+	}
+	std::print("nullptr");
 }

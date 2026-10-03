@@ -2,30 +2,33 @@
 #include "node.hpp"
 #include <cstddef>
 
-template < typename T >
+template <typename T>
 class LinkedList
 {
-    private:
-        std::size_t m_count { 0 };
-    
-    public:
-        Node<T>* Head{ nullptr };
-        Node<T>* Tail{ nullptr };
+private:
+	std::size_t m_count{0};
 
-        LinkedList();
+public:
+	Node<T>* Head{nullptr};
+	Node<T>* Tail{nullptr};
 
-        Node<T>* Get( std::size_t index ) const;
-        
-        void InsertHead( T val );
-        void InsertTail( T val );
-        void Insert( size_t index, T val );
+	LinkedList() {};
 
-        int Search( T val ) const;
-        void RemoveHead();
-        void RemoveTail();
-        void RemoveFirst( T val );
-        void Remove( size_t index );
+	Node<T>* Get(std::size_t index) const;
 
-        [[nodiscard]] size_t Count() const { return m_count; };
-        void Print() const;
+	void InsertHead(T val);
+	void InsertTail(T val);
+	void Insert(size_t index, T val);
+
+	int Search(T val) const;
+	void RemoveHead();
+	void RemoveTail();
+	void RemoveFirst(T val);
+	void Remove(size_t index);
+
+	[[nodiscard]] size_t Count() const
+	{
+		return m_count;
+	};
+	void Print() const;
 };
