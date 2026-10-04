@@ -227,7 +227,7 @@ void LinkedList<T>::Print() const
 {
 	for (auto curr{Head}; curr != nullptr; curr = curr->next)
 	{
-		std::print("{}->", curr->data);
+		std::print(" {} ->", curr->data);
 	}
 	std::print("nullptr");
 }
