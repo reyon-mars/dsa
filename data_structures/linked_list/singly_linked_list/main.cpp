@@ -1,5 +1,4 @@
 #include "linked_list.hpp"
-#include <print>
 
 int main()
 {
@@ -10,8 +9,6 @@ int main()
 	list.InsertTail(15);
 
 	list.Print();
-	const float key{15};
-	std::print("The List does {} have the element {} ", list.Search(key) ? "" : "not", key);
 
 	list.RemoveHead();
 	return 0;
