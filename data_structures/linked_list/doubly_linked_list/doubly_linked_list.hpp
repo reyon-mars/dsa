@@ -31,6 +31,24 @@ public:
 };
 
 template <typename T>
+void DoublyLinkedList<T>::RemoveHead()
+{
+	if (m_count == 0)
+		return;
+
+	Node<T>* oldHead = Head;
+	Head = Head->next;
+
+	if (Head)
+		Head->previous = nullptr;
+	else
+		Tail = nullptr;
+
+	delete oldHead;
+	m_count--;
+}
+
+template <typename T>
 void DoublyLinkedList<T>::RemoveTail()
 {
 	if (m_count == 0)
