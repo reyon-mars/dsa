@@ -229,5 +229,5 @@ void LinkedList<T>::Print() const
 	{
 		std::print(" {} ->", curr->data);
 	}
-	std::print("nullptr");
+	std::println("nullptr");
 }
