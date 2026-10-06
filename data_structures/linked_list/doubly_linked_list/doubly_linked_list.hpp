@@ -97,3 +97,23 @@ void DoublyLinkedList<T>::Remove(size_t index)
 	--m_count;
 	return;
 }
+
+template <typename T>
+void DoublyLinkedList<T>::InsertHead(T value)
+{
+	Node<T>* newNode{new Node<T>(value)};
+	newNode->next = Head;
+
+	if (Head)
+	{
+		Head->previous = newNode;
+	}
+
+	Head = newNode;
+	if (m_count == 0)
+	{
+		Tail = Head;
+	}
+	m_count++;
+	return;
+}
