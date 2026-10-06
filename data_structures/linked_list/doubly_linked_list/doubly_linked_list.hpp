@@ -1,6 +1,7 @@
 #pragma once
 #include "dll_node.hpp"
 #include <cstddef>
+#include <print>
 
 template <typename T>
 class DoublyLinkedList
@@ -185,4 +186,27 @@ int DoublyLinkedList<T>::Search(T val) const
 		}
 	}
 	return -1;
+}
+
+template <typename T>
+void DoublyLinkedList<T>::Print() const
+{
+	Node<T>* currNode{Head};
+	for (size_t idx{0}; idx < m_count && currNode; ++idx, currNode = currNode->next)
+	{
+		std::print(" {} ->", currNode->data);
+	}
+	std::println(" nullptr ");
+}
+
+template <typename T>
+Node<T>* DoublyLinkedList<T>::Get(size_t index) const
+{
+	if (index < 0 || index >= m_count)
+		return nullptr;
+
+	Node<T>* currNode{Head};
+	for (size_t idx{0}; idx < index && currNode; ++idx, currNode = currNode->next)
+		;
+	return currNode;
 }
