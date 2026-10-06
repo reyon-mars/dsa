@@ -178,7 +178,7 @@ int DoublyLinkedList<T>::Search(T val) const
 		return -1;
 
 	Node<T>* currNode{Head};
-	for (size_t idx = 0; idx < m_count, currNode; ++idx, currNode = currNode->next)
+	for (size_t idx = 0; currNode; ++idx, currNode = currNode->next)
 	{
 		if (currNode->data == val)
 		{
@@ -192,7 +192,7 @@ template <typename T>
 void DoublyLinkedList<T>::Print() const
 {
 	Node<T>* currNode{Head};
-	for (size_t idx{0}; idx < m_count && currNode; ++idx, currNode = currNode->next)
+	for (; currNode; currNode = currNode->next)
 	{
 		std::print(" {} ->", currNode->data);
 	}
