@@ -135,3 +135,34 @@ void DoublyLinkedList<T>::InsertTail(T value)
 	return;
 }
 
+template <typename T>
+void DoublyLinkedList<T>::Insert(size_t index, T value)
+{
+	if (index < 0 || index >= m_count)
+		return;
+
+	if (index == 0)
+	{
+		InsertHead(value);
+		return;
+	}
+	else if (index == m_count)
+	{
+		InsertTail(value);
+		return;
+	}
+
+	Node<T>* newNode{new Node<T>(value)};
+	Node<T>* prevNode{Head};
+
+	for (size_t idx = 0; idx < (index - 1); ++idx, prevNode = prevNode->next)
+	{
+	};
+
+	Node<T>* nextNode{prevNode->next};
+	prevNode->next = newNode;
+	nextNode->previous = newNode;
+	newNode->previous = prevNode;
+	newNode->next = nextNode;
+	m_count++;
+}
