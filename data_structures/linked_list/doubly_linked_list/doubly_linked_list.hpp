@@ -60,10 +60,40 @@ void DoublyLinkedList<T>::RemoveTail()
 		return;
 	}
 
-	auto node = Tail;
+	Node<T>* oldTail = Tail;
 	Tail = Tail->previous;
 	Tail->next = nullptr;
-	delete node;
+	delete oldTail;
 
 	m_count--;
+}
+
+template <typename T>
+void DoublyLinkedList<T>::Remove(size_t index)
+{
+	if (index < 0 || index >= m_count)
+		return;
+
+	if (index == 0)
+	{
+		RemoveHead();
+		return;
+	}
+	if (index == m_count - 1)
+	{
+		RemoveTail();
+		return;
+	}
+
+	Node<T>* currNode{Head};
+	for (size_t idx = 0; idx < index; ++idx, currNode = currNode->next)
+	{
+	};
+	Node<T>* prevNode{currNode->previous};
+	Node<T>* nextNode{currNode->next};
+	prevNode->next = nextNode;
+	nextNode->previous = prevNode;
+	delete currNode;
+	--m_count;
+	return;
 }
