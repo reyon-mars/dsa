@@ -25,7 +25,10 @@ public:
 	void RemoveTail();
 	void Remove(size_t index);
 
-	size_t Size() const;
+	size_t Size() const
+	{
+		return m_count;
+	};
 	void Print() const;
 	void PrintReverse() const;
 };
@@ -165,4 +168,21 @@ void DoublyLinkedList<T>::Insert(size_t index, T value)
 	newNode->previous = prevNode;
 	newNode->next = nextNode;
 	m_count++;
+}
+
+template <typename T>
+int DoublyLinkedList<T>::Search(T val) const
+{
+	if (m_count == 0)
+		return -1;
+
+	Node<T>* currNode{Head};
+	for (size_t idx = 0; idx < m_count, currNode; ++idx, currNode = currNode->next)
+	{
+		if (currNode->data == val)
+		{
+			return idx;
+		}
+	}
+	return -1;
 }
