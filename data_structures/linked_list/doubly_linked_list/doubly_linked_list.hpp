@@ -117,3 +117,21 @@ void DoublyLinkedList<T>::InsertHead(T value)
 	m_count++;
 	return;
 }
+
+template <typename T>
+void DoublyLinkedList<T>::InsertTail(T value)
+{
+	if (m_count == 0)
+	{
+		InsertHead(value);
+		return;
+	}
+
+	Node<T>* newNode{new Node<T>(value)};
+	newNode->previous = Tail;
+	Tail->next = newNode;
+	Tail = newNode;
+	m_count++;
+	return;
+}
+
