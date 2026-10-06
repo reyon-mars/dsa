@@ -19,7 +19,8 @@ int main()
 	std::println("The list now is: ");
 	list.Print();
 
-    list
+	const int key{43};
+	std::println("The value {} does {} exist ", key, list.Get(list.Search(key)) ? "" : "not");
 
 	return 0;
 }
