@@ -1,8 +1,11 @@
+#include <cstddef>
+#include <functional>
 #include <queue>
 #include <unordered_map>
+#include <utility>
 #include <vector>
 
-std::vector<int> kMostFreq(std::vector<int>& vec, int k)
+std::vector<int> kMostFreq(std::vector<int>& vec, size_t k)
 {
 	const size_t n = vec.size();
 	if (k > n)
