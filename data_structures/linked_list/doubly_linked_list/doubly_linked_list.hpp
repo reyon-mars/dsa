@@ -1,6 +1,8 @@
 #pragma once
 #include "dll_node.hpp"
+#include <cmath>
 #include <cstddef>
+#include <optional>
 #include <print>
 
 template <typename T>
@@ -12,9 +14,39 @@ private:
 	Node<T>* Tail{nullptr};
 
 public:
+	void Clear()
+	{
+		Node<T>* currNode{Head};
+		Node<T>* nextNode{nullptr};
+		while (currNode)
+		{
+			nextNode = currNode->next;
+			delete currNode;
+			currNode = nextNode;
+		}
+	}
 	DoublyLinkedList() = default;
 
-	Node<T>* Get(size_t index) const;
+	~DoublyLinkedList()
+	{
+		Clear();
+	}
+
+	DoublyLinkedList(const DoublyLinkedList& rhs) = delete;
+	DoublyLinkedList operator=(const DoublyLinkedList& rhs) = delete;
+
+	DoublyLinkedList(DoublyLinkedList&& rhs)
+	{
+		this->Head = rhs.Head;
+		this->Tail = rhs.Tail;
+		this->m_count = rhs.m_count;
+		rhs.Head = nullptr;
+		rhs.Tail = nullptr;
+		rhs.m_count = 0;
+	}
+	DoublyLinkedList operator=(DoublyLinkedList&& rhs) = default;
+
+	std::optional<T> Get(size_t index) const;
 
 	void InsertHead(T value);
 	void InsertTail(T value);
@@ -142,7 +174,7 @@ void DoublyLinkedList<T>::InsertTail(T value)
 template <typename T>
 void DoublyLinkedList<T>::Insert(size_t index, T value)
 {
-	if (index < 0 || index >= m_count)
+	if (index < 0 || index > m_count)
 		return;
 
 	if (index == 0)
@@ -200,13 +232,24 @@ void DoublyLinkedList<T>::Print() const
 }
 
 template <typename T>
-Node<T>* DoublyLinkedList<T>::Get(size_t index) const
+std::optional<T> DoublyLinkedList<T>::Get(size_t index) const
 {
 	if (index < 0 || index >= m_count)
-		return nullptr;
+		return std::nullopt;
 
 	Node<T>* currNode{Head};
 	for (size_t idx{0}; idx < index && currNode; ++idx, currNode = currNode->next)
 		;
-	return currNode;
+	return currNode->data;
+}
+
+template <typename T>
+void DoublyLinkedList<T>::PrintReverse() const
+{
+	Node<T>* currNode{Tail};
+	while (currNode)
+	{
+		std::print(" {} ->", currNode->data);
+		currNode = currNode->previous;
+	}
 }
