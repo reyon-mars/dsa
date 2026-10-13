@@ -1,9 +1,9 @@
 #pragma once
 #include "dll_node.hpp"
-#include <cmath>
 #include <cstddef>
 #include <optional>
 #include <print>
+#include <utility>
 
 template <typename T>
 class DoublyLinkedList
@@ -24,6 +24,8 @@ public:
 			delete currNode;
 			currNode = nextNode;
 		}
+		Head = Tail = nullptr;
+		m_count = 0;
 	}
 	DoublyLinkedList() = default;
 
@@ -33,18 +35,26 @@ public:
 	}
 
 	DoublyLinkedList(const DoublyLinkedList& rhs) = delete;
-	DoublyLinkedList operator=(const DoublyLinkedList& rhs) = delete;
+	DoublyLinkedList& operator=(const DoublyLinkedList& rhs) = delete;
 
-	DoublyLinkedList(DoublyLinkedList&& rhs)
+	DoublyLinkedList(DoublyLinkedList&& rhs) noexcept : Head(rhs.Head), Tail(rhs.Tail), m_count(rhs.m_count)
 	{
-		this->Head = rhs.Head;
-		this->Tail = rhs.Tail;
-		this->m_count = rhs.m_count;
 		rhs.Head = nullptr;
 		rhs.Tail = nullptr;
 		rhs.m_count = 0;
 	}
-	DoublyLinkedList operator=(DoublyLinkedList&& rhs) = default;
+
+	DoublyLinkedList& operator=(DoublyLinkedList&& rhs)
+	{
+		if (this != &rhs)
+		{
+			Clear();
+			std::swap(this->Head, rhs.Head);
+			std::swap(this->Tail, rhs.Tail);
+			std::swap(this->m_count, rhs.m_count);
+		}
+		return *this;
+	}
 
 	std::optional<T> Get(size_t index) const;
 
