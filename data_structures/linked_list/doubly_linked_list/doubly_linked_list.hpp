@@ -9,7 +9,7 @@ template <typename T>
 class DoublyLinkedList
 {
 private:
-	size_t m_count{0};
+	std::size_t m_count{0};
 	Node<T>* Head{nullptr};
 	Node<T>* Tail{nullptr};
 
@@ -62,7 +62,7 @@ public:
 	void InsertTail(T value);
 	void Insert(size_t index, T value);
 
-	int Search(T value) const;
+	int Search(const T& value) const;
 
 	void RemoveHead();
 	void RemoveTail();
@@ -117,7 +117,7 @@ void DoublyLinkedList<T>::RemoveTail()
 template <typename T>
 void DoublyLinkedList<T>::Remove(size_t index)
 {
-	if (index < 0 || index >= m_count)
+	if (index >= m_count)
 		return;
 
 	if (index == 0)
@@ -184,7 +184,7 @@ void DoublyLinkedList<T>::InsertTail(T value)
 template <typename T>
 void DoublyLinkedList<T>::Insert(size_t index, T value)
 {
-	if (index < 0 || index > m_count)
+	if (index > m_count)
 		return;
 
 	if (index == 0)
@@ -214,7 +214,7 @@ void DoublyLinkedList<T>::Insert(size_t index, T value)
 }
 
 template <typename T>
-int DoublyLinkedList<T>::Search(T val) const
+int DoublyLinkedList<T>::Search(const T& val) const
 {
 	if (m_count == 0)
 		return -1;
@@ -244,7 +244,7 @@ void DoublyLinkedList<T>::Print() const
 template <typename T>
 std::optional<T> DoublyLinkedList<T>::Get(size_t index) const
 {
-	if (index < 0 || index >= m_count)
+	if (index >= m_count)
 		return std::nullopt;
 
 	Node<T>* currNode{Head};
@@ -262,4 +262,5 @@ void DoublyLinkedList<T>::PrintReverse() const
 		std::print(" {} ->", currNode->data);
 		currNode = currNode->previous;
 	}
+	std::print(" nullptr ");
 }
