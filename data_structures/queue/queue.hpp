@@ -1,3 +1,4 @@
+#pragma once
 #include <cstddef>
 #include <stdexcept>
 #include <utility>
@@ -44,18 +45,18 @@ public:
 	{
 		return m_count == 0;
 	}
-	size_t Size() const
+	std::size_t Size() const
 	{
 		return m_count;
 	}
 
-	T Front();
+	const T& Front() const;
 	void Enqueue(T val);
 	void Dequeue();
 };
 
 template <typename T>
-T Queue<T>::Front()
+const T& Queue<T>::Front() const
 {
 	if (IsEmpty())
 		throw std::underflow_error("Invalid Operation: Front() on an empty queue is not defined.");
@@ -87,5 +88,7 @@ void Queue<T>::Dequeue()
 	Node* oldFront{m_front};
 	m_front = m_front->next;
 	delete oldFront;
+	if (!m_front)
+		m_back = nullptr;
 	m_count--;
 }
