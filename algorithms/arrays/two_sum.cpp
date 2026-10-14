@@ -11,10 +11,10 @@ bool two_sum_2_pointer(std::vector<int>& arr, int target, bool is_sorted = false
 	}
 
 	size_t left(0), right(arr.size() - 1);
-	
+
 	if (!is_sorted)
 	{
-		std::ranges::sort( arr );
+		std::ranges::sort(arr);
 	}
 
 	while (left < right)
@@ -35,17 +35,17 @@ bool two_sum_2_pointer(std::vector<int>& arr, int target, bool is_sorted = false
 	return false;
 }
 
-bool twoSum( std::vector<int>& vec, int target )
+bool twoSum(std::vector<int>& vec, int target)
 {
 	std::unordered_set<int> seen;
-	seen.reserve( vec.size() );
-	
-	for( const auto num : vec )
+	seen.reserve(vec.size());
+
+	for (const auto num : vec)
 	{
-		if( seen.contains( target - num ) ) 
+		if (seen.contains(target - num))
 			return true;
 
-		seen.insert( num );
+		seen.insert(num);
 	}
 	return false;
 }
