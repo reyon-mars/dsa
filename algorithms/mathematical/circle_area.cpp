@@ -1,22 +1,22 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 #define PI 3.14159265
 
 int main()
 {
 
-    int r(0);
+	int r(0);
 
-    while (true)
-    {
-        std::cout << "Please enter the radius : ";
-        std::cin >> r;
+	while (true)
+	{
+		std::cout << "Please enter the radius : ";
+		std::cin >> r;
 
-        double area = PI * r * r;
+		double area = PI * r * r;
 
-        std::cout << "The area of the circle with the radius " << r << " is "
-                  << std::fixed << std::setprecision(5) << area << std::endl;
-    }
+		std::cout << "The area of the circle with the radius " << r << " is " << std::fixed << std::setprecision(5)
+				  << area << std::endl;
+	}
 
-    return 0;
+	return 0;
 }
