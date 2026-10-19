@@ -18,3 +18,4 @@ int removeElement(std::vector<int>& vec, int val)
 	}
 	return write_idx++;
 }
+
