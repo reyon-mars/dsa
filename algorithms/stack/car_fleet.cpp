@@ -19,16 +19,16 @@ int carFleet(int target, const std::vector<int>& position, const std::vector<int
 						  return a.first > b.first;
 					  });
 
-    int fleetCount{ 0 };
-    double slowestTime{ 0.0 };
+	int fleetCount{0};
+	double slowestTime{0.0};
 
-    for( const auto& [position, currTime] : cars )
-    {
-        if( currTime > slowestTime )
-        {
-            fleetCount++;
-            slowestTime = currTime;
-        }
-    }
-    return fleetCount;
+	for (const auto& [position, currTime] : cars)
+	{
+		if (currTime > slowestTime)
+		{
+			fleetCount++;
+			slowestTime = currTime;
+		}
+	}
+	return fleetCount;
 }
