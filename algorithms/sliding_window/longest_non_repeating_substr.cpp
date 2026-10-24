@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <array>
 #include <string>
 
@@ -13,7 +14,7 @@ int longest_non_repeating_substr(const std::string& str)
 
 	while (right < str.size())
 	{
-		char curr_char = str[right];
+		const char curr_char = str[right];
 
 		if (seen_at[curr_char] >= 0)
 		{
@@ -45,12 +46,8 @@ int lengthOfLongestSubstring(const std::string& str)
 		if (seenAt[currChar] != -1 && seenAt[currChar] >= substrStart)
 		{
 			substrStart = seenAt[currChar] + 1;
-			seenAt[currChar] = i;
 		}
-		else
-		{
-			seenAt[currChar] = i;
-		}
+		seenAt[currChar] = i;
 		maxLen = std::max(maxLen, (i - substrStart + 1));
 	}
 	return maxLen;
