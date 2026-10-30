@@ -18,8 +18,7 @@ private:
 	std::unordered_map<std::string, Entry> tm;
 
 public:
-    
-    TimeMap() = default;
+	TimeMap() = default;
 
 	void set(const std::string& key, std::string value, TimeStamp timestamp)
 	{
@@ -28,13 +27,36 @@ public:
 		keySlot.value.emplace_back(std::move(value));
 	}
 
-    std::string get( const std::string& key, TimeStamp timestamp )
-    {
-        auto it{ tm.find(key)};
-        if( it == tm.end() ){ return "";}
+	std::string get(const std::string& key, TimeStamp timestamp)
+	{
+		auto it{tm.find(key)};
+		if (it == tm.end())
+		{
+			return "";
+		}
 
-        const auto& history{ it->second};
-        
+		const auto& history{it->second};
 
-    }
+		int left{0};
+		int right{static_cast<int>(history.timeStamp.size())};
+
+		while (left < right)
+		{
+			int mid{left + (right - left) / 2};
+
+			if (history.timeStamp[mid] <= timestamp)
+			{
+				left = mid + 1;
+			}
+			else
+			{
+				right = mid - 1;
+			}
+		}
+		if (left == 0)
+		{
+			return "";
+		}
+		return history.value[left - 1];
+	}
 };
