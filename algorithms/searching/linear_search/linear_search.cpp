@@ -1,5 +1,18 @@
+#include <algorithm>
 #include <cstddef>
+#include <iterator>
 #include <vector>
+
+template <typename T>
+int stl_search(const std::vector<T>& vec, T target)
+{
+	auto it{std::ranges::find(vec, target)};
+	if (it != vec.end())
+	{
+		return static_cast<int>(std::ranges::distance(vec.begin(), it));
+	}
+	return -1;
+}
 
 template <typename T>
 int search(const std::vector<T>& vec, T target)
