@@ -22,4 +22,15 @@ int findNumbers(const std::vector<int>& nums)
 	return count;
 }
 
-int find_numbers( const std::)
+int find_numbers(const std::vector<int>& nums)
+{
+	auto count{0};
+	for (const auto num : nums)
+	{
+		if ((num >= 10 && num <= 99) || (num >= 1000 && num <= 9999) || (num >= 100000 && num <= 999999))
+		{
+			count++;
+		}
+	}
+	return count;
+}
