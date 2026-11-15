@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <vector>
 
 int minStartValue(std::vector<int>& nums)
